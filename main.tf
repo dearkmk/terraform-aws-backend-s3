@@ -19,10 +19,10 @@ resource "aws_s3_bucket" "s3_backend" {
     prevent_destroy = true
   }
 
-  tags {
-    Name      = "TF remote state test"
-    Terraform = "true"
-  }
+#  tags {
+#    Name      = "TF remote state test"
+#    Terraform = "true"
+#  }
 }
 
 # DynamoDB table to lock state during applies
@@ -38,9 +38,9 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     type = "S"
   }
 
-  tags {
-    Purpose = "Terraform state lock for state in ${var.backend_s3_bucket}:${var.s3_key} "
-  }
+#  tags {
+#    Purpose = "Terraform state lock for state in ${var.backend_s3_bucket}:${var.s3_key} "
+#  }
 }
 
 /* Local file for next init to move state to s3.
